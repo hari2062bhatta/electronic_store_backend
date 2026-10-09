@@ -71,7 +71,7 @@ export const loginUser = async (req: Request, res: Response) => {
       }
 
       const access_token = await jwt.sign(
-        { _id: user._id, role: user.role },
+        { _id: user._id.toString(), role: user.role },
         secret,
         { expiresIn: "5m" },
       );
